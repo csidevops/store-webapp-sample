@@ -15,3 +15,7 @@ phases:
       - mvn package
   post_build:
     commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/SampleStore.war
