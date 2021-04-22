@@ -31,7 +31,7 @@
     </properties>
 
     <build>
-        <finalName>store-webapp</finalName>
+        <finalName>SampleStore</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
