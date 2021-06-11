@@ -2,6 +2,7 @@
  - name: maven:3-jdk-8
    entrypoint: mvn
    args: ['package','-Dmaven.test.skip=true']
+   
  - name: 'gcr.io/PROJECT_ID/sonar-scanner:latest'
    args:
    - '-Dsonar.host.url=https://sonarcloud.io'
@@ -9,6 +10,7 @@
    - '-Dsonar.projectKey=healthcaredemo'
    - '-Dsonar.organization=csidemo'
    - '-Dsonar.sources=.'
+   
  images: 
  - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
  - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
