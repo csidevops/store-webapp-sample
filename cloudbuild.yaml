@@ -10,3 +10,4 @@
      - '-Dsonar.projectKey=healthcaredemo'
      - '-Dsonar.organization=csidemo'
      - '-Dsonar.sources=./src'   
+     - '-Dsonar.scm.provider=git'
