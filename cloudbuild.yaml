@@ -1,7 +1,8 @@
 #static code analysis by sonarqube
-- name: 'maven:3.6.1-jdk-8'
-  entrypoint: 'bash'
-  args:
+ steps:
+ - name: 'maven:3.6.1-jdk-8'
+   entrypoint: 'bash'
+   args:
     - -c
     - |
       unset MAVEN_CONFIG \
@@ -12,5 +13,5 @@
       '-Dsonar.host.url=https://sonarcloud.io' \
       '-Dsonar.qualitygate.wait=true' \
       'allow_failure: true'
-  dir: 'store-webapp-sample/src/main/'
-  id: 'sonarqube-analysis'
+   dir: 'store-webapp-sample/src/main/'
+   id: 'sonarqube-analysis'
