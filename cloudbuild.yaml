@@ -1,27 +1,16 @@
- steps:
- - name: maven:3-jdk-8
-   entrypoint: mvn
-   args: ['package','-Dmaven.test.skip=true']
-
- - name: 'gcr.io/cloud-builders/docker'
-   args: 
-   - 'build'
-   - '--build-arg'
-   - 'SONARQUBE_SCANNER_CLI_VERSION=4.6.0.2311'
-   - '-t'
-   - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-   - '-t'
-   - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
-   - '.'
-
- - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-   args: 
-     - '-Dsonar.host.url=https://sonarcloud.io'
-     - '-Dsonar.login=d4bb060355dc5b069f5c9cc92ee1de41b5a688b7'
-     - '-Dsonar.projectKey=healthcaredemo'
-     - '-Dsonar.organization=csidemo'
-     - '-Dsonar.sources=.'   
-
- images: 
- - 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
- - 'gcr.io/$PROJECT_ID/sonar-scanner:4.6.0.2311'
+#static code analysis by sonarqube
+- name: 'maven:3.6.1-jdk-8'
+  entrypoint: 'bash'
+  args:
+    - -c
+    - |
+      unset MAVEN_CONFIG \
+      && echo "104.199.71.165 sonarqube.ct.blue.cdtapps.com" > /etc/hosts \
+      && mvn sonar:sonar -q -Dsonar.login=d4bb060355dc5b069f5c9cc92ee1de41b5a688b7 \
+      '-Dsonar.projectKey=healthcaredemo' \
+      '-Dsonar.projectName=healthcaredemo' \
+      '-Dsonar.host.url=https://sonarcloud.io' \
+      '-Dsonar.qualitygate.wait=true' \
+      'allow_failure: true'
+  dir: 'store-webapp-sample/src/main/'
+  id: 'sonarqube-analysis'
