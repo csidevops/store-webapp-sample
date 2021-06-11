@@ -9,4 +9,4 @@
      - '-Dsonar.login=d4bb060355dc5b069f5c9cc92ee1de41b5a688b7'
      - '-Dsonar.projectKey=healthcaredemo'
      - '-Dsonar.organization=csidemo'
-     - '-Dsonar.sources=/workspace'  
+     - '-Dsonar.sources=/src/main'  
