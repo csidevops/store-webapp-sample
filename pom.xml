@@ -28,7 +28,7 @@
         <logback.version>1.2.3</logback.version>
         <glassfish-javax.el.version>3.0.0</glassfish-javax.el.version>
     </properties>
-
+<!-- commented out for fixing unit test by JUNIT
     <build>
         <finalName>SampleStore</finalName>
         <pluginManagement>
@@ -72,7 +72,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Plugin to run unit tests -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -85,7 +85,29 @@
             </plugin>
         </plugins>
     </build>
-
+    --> 
+	<build>
+        <finalName>SampleStore</finalName>
+        	<plugins>	
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.1</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+		<plugin>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+				<warSourceDirectory>WebContent</warSourceDirectory>
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+			</configuration>
+		</plugin>
+		</plugins>
+    	</build>
+	
     <dependencyManagement>
         <dependencies>
             <dependency>
