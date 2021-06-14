@@ -4,8 +4,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.LinkedList;
 import java.util.List;
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;
 import org.seedstack.samples.store.interfaces.data.CategoryDTO;
 
