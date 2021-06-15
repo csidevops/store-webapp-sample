@@ -13,4 +13,4 @@
      - '-Dsonar.java.binaries=./target/classes'
 
  - name: gcr.io/cloud-builders/mvn
-    args: ['deploy']
+   args: ['deploy']
