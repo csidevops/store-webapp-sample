@@ -12,8 +12,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.seedstack.samples</groupId>
-    <artifactId>HealthCareDemo</artifactId>
+    <artifactId>HealthCareDemo</artifactId>    
+    <packaging>war</packaging>
     <version>1.0.0-SNAPSHOT</version>
+    <name>HealthCareDemo</name>
+
 
 
     <properties>
